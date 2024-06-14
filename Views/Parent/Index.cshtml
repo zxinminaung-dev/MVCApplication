@@ -1,0 +1,38 @@
+﻿@model List<Parent>;
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-8">
+                <h5 class="card-title">Parent List</h5>
+            </div>
+            <div class="col-md-4 text-end">
+                <a type="button" class="btn btn-sm btn-outline-primary mr-2" href="Parent/Create">Create</a>
+            </div>
+        </div>
+        
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Action</th>
+                    <th scope="col">Father Name</th>
+                    <th scope="col">Motehr Name</th>
+                    <th scope="col">Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var parent in Model)
+                {
+                    <tr>
+                        <td>
+                            <a type="button" class="btn btn-sm btn-outline-warning mr-1" href="Parent/Edit/@parent.id">Edit</a>
+                            <a type="button" class="btn btn-sm btn-outline-danger" href="Parent/Delete/@parent.id">Delete</a></td>
+                        <td>@parent.father_name</td>
+                        <td>@parent.mother_name</td>
+                        <td>@parent.address</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

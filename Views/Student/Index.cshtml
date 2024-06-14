@@ -1,0 +1,47 @@
+﻿@model List<MVCApplication.ViewModel.StudentViewModel>;
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-8">
+                <h5 class="card-title">Student List</h5>
+            </div>
+            <div class="col-md-4 text-end">
+                <a type="button" class="btn btn-sm btn-outline-primary mr-2" href="Student/Create">Create</a>
+            </div>
+        </div>
+       
+        <div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Action</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Date of Birth</th>
+                        <th scope="col">Father Name</th>
+                        <th scope="col">Mother Name</th>
+                        <th scope="col">Class</th>
+                        <th scope="col">Education Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <a type="button" class="btn btn-sm btn-outline-warning mr-1" href="Student/Edit/@item.id">Edit</a>
+                                <a type="button" class="btn btn-sm btn-outline-danger" href="Student/Delete/@item.id">Delete</a>
+                            </td>
+                            <td>@item.name</td>
+                            <td>@item.date_of_birth</td>
+                            <td>@item.father_name</td>
+                            <td>@item.mother_name</td>
+                            <td>@item.class_name</td>
+                            <td>@item.education_year</td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

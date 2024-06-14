@@ -1,0 +1,43 @@
+﻿@model MVCApplication.Models.Student
+<div class="row justify-content-center mt-5">
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+                <form method="post" action="/Student/Create">
+                    <input type="text" asp-for="id" style="visibility:hidden;" class="form-control">
+                    <div class="form-group mb-2">
+                        <label>Name</label>
+                        <input type="text" asp-for="name" class="form-control">
+                        <span asp-validation-for="name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label>dob</label>
+                        <input type="text" asp-for="dob" class="form-control">
+                        <span asp-validation-for="dob" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label>Parent Name</label>
+                        <select asp-for="Parentid" class="form-control" asp-items="@(new SelectList(ViewBag.ParentList, "id", "father_name"))">
+                            <option value="Choose parent"></option>
+                        </select>
+                        <span asp-validation-for="Parentid" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label>Class Name</label>
+                        <select asp-for="Classid" class="form-control" asp-items="@(new SelectList(ViewBag.ClassList, "id", "name"))">
+                            <option value="Choose class"></option>
+                        </select>
+                        <span asp-validation-for="Classid" class="text-danger"></span>
+                    </div>
+                    <div class="row justify-content-end">
+                        <div class="col-8 text-end">
+                            <a type="button" class="btn btn-sm btn-outline-danger" href="/Student">Cancel</a>
+                            <button type="submit" class="btn btn-sm btn-outline-primary">Save</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
